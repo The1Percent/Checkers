@@ -19,7 +19,7 @@ public class Help extends JDialog {
         txt.setWrapStyleWord(true);
         txt.setFont(new Font("Dialog",Font.PLAIN,14));
         hlp.getHorizontalScrollBar().setEnabled(false);
-        addText();        
+        //addText();        
         add(hlp);
 
 
