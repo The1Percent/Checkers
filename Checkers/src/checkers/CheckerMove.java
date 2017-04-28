@@ -1,6 +1,8 @@
 package checkers;
 
 import java.util.Vector;
+import java.lang.Thread;
+import javax.swing.Timer;
 
 //class for movements
 public class CheckerMove {
@@ -459,19 +461,19 @@ public class CheckerMove {
 //"apply move" in the Minimax.  simply moves the board give moves
     static void moveComputer(int[][] board, int[] move)
     {
-        int startx = move[0];
-        int starty = move[1];
-        int endx = move[2];
-        int endy = move[3];
-        while (endx>0 || endy>0)
-        {
-
-            ApplyMove(board,startx,starty,endx%10,endy%10);
-            startx = endx%10;
-            starty = endy%10;
-            endx /= 10;
-            endy /= 10;
-        }
+    		int startx = move[0];
+            int starty = move[1];
+            int endx = move[2];
+            int endy = move[3];
+            while (endx>0 || endy>0)
+            {
+                ApplyMove(board,startx,starty,endx%10,endy%10);
+                startx = endx%10;
+                starty = endy%10;
+                endx /= 10;
+                endy /= 10;
+            }
+        
     }
 
 //for an initial capture represented by move, sees if there are more captures
