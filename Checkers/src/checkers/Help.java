@@ -30,6 +30,7 @@ public class Help extends JDialog {
         setResizable(false);
         setTitle("How To Play");
         setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+
     }
 
     private void addText() {

@@ -2,6 +2,8 @@ package checkers;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.awt.*;
 
 public class Checkers extends JPanel implements ActionListener, ItemListener, MouseMotionListener, MouseListener {
@@ -269,6 +271,16 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         }
         if(e.getSource()==hlpB){
             new PlaySound("Checkers/sounds/button.wav").start();
+            try {
+				java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+            
             hp.setVisible(true);
         }
         if(e.getSource()==snB){
