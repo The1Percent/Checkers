@@ -10,7 +10,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     Graphics g;
 
-    JTextArea msg=new JTextArea("Start a new game... Blue is to move first...");
+    JTextArea msg=new JTextArea("Start a new game... Yellow is to move first...");
     ImageIcon redN=new ImageIcon(new ImageIcon(getClass().getResource("/red_normal.jpg")).getImage());//red_normal.jpg
     ImageIcon yellowN=new ImageIcon(new ImageIcon(getClass().getResource("/yellow_normal.jpg")).getImage());//yellow_normal.jpg
     ImageIcon redK=new ImageIcon(new ImageIcon(getClass().getResource("/red_king.jpg")).getImage());//red_king.jpg
@@ -560,17 +560,17 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             msg.setText("Red to move");
         }
         else{
-            msg.setText("Blue to move");
+            msg.setText("Yellow to move");
         }
 
         if (loser == redNormal && won==0){
-            msg.setText("Blue Wins!");
+            msg.setText("Yellow Wins!");
             try {
                 Thread.sleep(150);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            new GameWin("Blue",this.getLocationOnScreen());
+            new GameWin("Yellow",this.getLocationOnScreen());
             won=1;
             undoCount=0;
             newGame();
