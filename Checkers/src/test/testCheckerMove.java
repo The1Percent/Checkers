@@ -41,8 +41,10 @@ public class testCheckerMove {
 
 	@Test
 	public void testApplyMove() {
-		int openingMove = CheckerMove.ApplyMove(boardStart, 5, 0, 4, 1);
+		int openingMove = CheckerMove.ApplyMove(boardStart, 2, 3, 3, 4);
+		int secondMove = CheckerMove.ApplyMove(boardStart, 5, 0, 4, 1);
 		assertTrue("Valid opening move should return true", openingMove == 1);
+		assertFalse("Player 2 should not be able make the starting move", secondMove == 1);
 	}
 
 }
