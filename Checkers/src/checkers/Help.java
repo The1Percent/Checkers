@@ -34,9 +34,9 @@ public class Help extends JDialog {
     }
 
     private void addText() {
-        String str;
+        String str="";
         try {
-            BufferedReader b=new BufferedReader(new FileReader(new File("src//guidance//HowToPlay.is")));
+            BufferedReader b=new BufferedReader(new FileReader(new File("Checkers/src/guidance/Help.txt")));
             try {
                 while((str=b.readLine())!=null)
                     txt.append(str+"\n");
@@ -46,5 +46,6 @@ public class Help extends JDialog {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println(str);
     }
 }

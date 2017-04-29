@@ -5,9 +5,17 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.awt.*;
+import java.lang.Thread;
 
 public class Checkers extends JPanel implements ActionListener, ItemListener, MouseMotionListener, MouseListener {
 
+	
+	Thread rick = new Thread(){
+		@Override
+		public void run(){
+			new PlaySound("Checkers/sounds/01 - Never Gonna Give You Up.wav").start();
+		}
+	};
     Graphics g;
 
     JTextArea msg=new JTextArea("Start a new game... Yellow is to move first...");
@@ -84,7 +92,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     int won=0;
 
     Point winPoint;
-
+    
     Checkers(){
         setupGUI();
     }
@@ -287,10 +295,12 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             if(silent){
                 snB.setIcon(snp);
                 silent=false;
-                new PlaySound("Checkers/sounds/button.wav").start();
+                //new PlaySound("Checkers/sounds/button.wav").start();
+                rick.start();
             }
             else{
                 snB.setIcon(mup);
+                
                 silent=true;
             }
         }
@@ -301,7 +311,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         //Yellow takes the first move in both modes
         //If someone wants to move secondly, red has to be selected
         //Yellow is always at the bottom of the board
-
+    	
         selectedColor= c1.isSelected() ? "red" : "yellow";
         selectedMode=p1.isSelected()?1:2;
         difficulty=level.getSelectedIndex();
@@ -424,6 +434,12 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 				loser = redNormal;
 			else
 			{
+				try{
+                	update(g);
+                	new PlaySound("Checkers/sounds/comPlay.wav").start();
+                	Thread.sleep(1000);
+                } catch (Exception e) {
+                }
                 CheckerMove.moveComputer(board, result);
 
                 if (loser == empty){
@@ -431,6 +447,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                     play();
                 }
                 this.toMove = yellowNormal;
+                
+                
 			}
 		}
 
