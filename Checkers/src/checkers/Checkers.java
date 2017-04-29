@@ -573,7 +573,6 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             new GameWin("Yellow",this.getLocationOnScreen());
             won=1;
             undoCount=0;
-            newGame();
         }
         else if (loser == yellowNormal && won==0){
             msg.setText("Red Wins!");
@@ -585,7 +584,6 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             new GameWin("Red",this.getLocationOnScreen());
             won=1;
             undoCount=0;
-            newGame();            
         }
     }
    // The AWT invokes the update() method in response to the repaint() method
