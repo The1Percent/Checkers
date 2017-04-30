@@ -165,7 +165,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setBounds(90,420,80,25);
         //this.add(c1);
         //this.add(c2);
-
+        level.setFont(new Font("SansSerif", Font.BOLD, 10));
         level.setCursor(new Cursor(Cursor.HAND_CURSOR));
         level.addItemListener(this);
         level.addItem("Easy");
