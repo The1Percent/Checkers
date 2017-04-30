@@ -174,7 +174,6 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         level.addItem("Bit Difficult");
         level.addItem("Tough");
         level.setSelectedIndex(2);
-        level.setBounds(415,200,80,25);
         this.add(level);
 
         diff.setCursor(new Cursor(Cursor.HAND_CURSOR));
