@@ -10,13 +10,6 @@ public class CheckerFrame extends JFrame implements ActionListener{
     JPanel gmP=new StartPanel();
   
     public CheckerFrame(){
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            SwingUtilities.updateComponentTreeUI(this); //changing the appearence of the frame
-        }
-        catch (Exception e) {
-           //no need to handle exception as it only affect the appearence
-        }
         setupGUI();
         new PlaySound("Checkers/sounds/Start.wav").start();
     }
