@@ -2,6 +2,7 @@ package checkers;
 
 import javax.swing.*;
 import java.io.*;
+import java.net.URL;
 import java.awt.*;
 
 public class Help extends JDialog {
@@ -19,7 +20,7 @@ public class Help extends JDialog {
         txt.setWrapStyleWord(true);
         txt.setFont(new Font("Dialog",Font.PLAIN,14));
         hlp.getHorizontalScrollBar().setEnabled(false);
-        //addText();        
+        addText();        
         add(hlp);
 
 
@@ -35,9 +36,9 @@ public class Help extends JDialog {
 
     private void addText() {
         String str;
+        URL url = getClass().getResource("rickroll.txt");
         try {
-            BufferedReader b=new BufferedReader(new FileReader(new File("src//guidance//HowToPlay.is")));
-            try {
+            BufferedReader b=new BufferedReader(new FileReader(new File(url.getPath())));            try {
                 while((str=b.readLine())!=null)
                     txt.append(str+"\n");
             } catch (IOException e) {
