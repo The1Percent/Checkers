@@ -23,7 +23,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
         stB.setIcon(new ImageIcon(getClass().getResource("/checkersIcon.jpg")));
         stB.setBackground(Color.LIGHT_GRAY);
         stB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        stB.setBounds(135,420,240,60);
+        stB.setBounds(140,420,240,60);
         stB.setFont(new Font("Times new roman",Font.BOLD,20));
         stB.addActionListener(this);
         stB.setFocusPainted(false);
@@ -31,7 +31,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
 
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.jpg")).getImage());
 
-        setSize(508,520);
+        setSize(520,520);
         setLocation((int)getToolkit().getScreenSize().getWidth()/2-254,(int)getToolkit().getScreenSize().getHeight()/2-310);
         setResizable(false);
         setVisible(true);
