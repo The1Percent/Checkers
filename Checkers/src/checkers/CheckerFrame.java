@@ -11,7 +11,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
   
     public CheckerFrame(){
         setupGUI();
-        new PlaySound("Checkers/sounds/Start.wav").start();
+        new PlaySound("/Start.wav").start();
     }
 
     private void setupGUI() {
@@ -44,7 +44,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("Start Game")){
             ((JButton)e.getSource()).setText("New Game");
-            new PlaySound("Checkers/sounds/button.wav").start();
+            new PlaySound("/button.wav").start();
             gmP=new Checkers();
             gmP.setBounds(0,0,518,401);
             this.setContentPane(gmP);

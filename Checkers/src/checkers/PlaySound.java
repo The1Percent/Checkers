@@ -1,5 +1,9 @@
 package checkers;
 
+import com.apple.eio.FileManager;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioFormat;
@@ -25,59 +29,14 @@ public class PlaySound extends Thread {
 
 	public void run() {
         if(Checkers.silent) return;
-        
-        File soundFile = new File(filename);
-		if (!soundFile.exists()) {
-			System.err.println("Wave file not found: " + filename);
-			return;
-		}
 
-		AudioInputStream audioInputStream;
+		AudioStream audioStream;
 		try {
-			audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-		} catch (UnsupportedAudioFileException e1) {
-			e1.printStackTrace();
-			return;
+			audioStream = new AudioStream(getClass().getResourceAsStream(filename));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			return;
 		}
-
-		AudioFormat format = audioInputStream.getFormat();
-		SourceDataLine auline;
-		DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
-
-		try {
-			auline = (SourceDataLine) AudioSystem.getLine(info);
-			auline.open(format);
-		} catch (LineUnavailableException e) {
-			e.printStackTrace();
-			return;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return;
-		}
-
-		if (auline.isControlSupported(FloatControl.Type.PAN)) {
-			FloatControl pan = (FloatControl) auline
-					.getControl(FloatControl.Type.PAN);
-		}
-
-		auline.start();
-		int nBytesRead = 0;
-		byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
-
-		try {
-			while (nBytesRead != -1) {
-				nBytesRead = audioInputStream.read(abData, 0, abData.length);
-				if (nBytesRead >= 0)
-					auline.write(abData, 0, nBytesRead);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-        } finally {
-			auline.drain();
-			auline.close();
-		}
+		AudioPlayer.player.start(audioStream);
 	}
 }
