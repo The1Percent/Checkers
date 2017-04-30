@@ -188,6 +188,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         msg.setForeground(Color.black);
         msg.setBounds(0,405,400,20);
         msg.setEnabled(true);
+        msg.setEditable(false);
         this.add(msg);
 
         rp.setBounds(10, 440, 50, 50);
