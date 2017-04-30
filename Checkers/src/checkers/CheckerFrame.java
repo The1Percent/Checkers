@@ -16,7 +16,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
 
     private void setupGUI() {
         setLayout(null);
-        gmP.setBounds(0,0,508,401);//400,401
+        gmP.setBounds(0,0,518,401);//400,401
         //gmP.imageUpdate(ne, WIDTH, WIDTH, WIDTH, WIDTH, WIDTH)
         add(gmP);
         stB.setHorizontalAlignment(SwingConstants.LEADING);
@@ -31,7 +31,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
 
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.jpg")).getImage());
 
-        setSize(508,520);
+        setSize(518,520);
         setLocation((int)getToolkit().getScreenSize().getWidth()/2-254,(int)getToolkit().getScreenSize().getHeight()/2-310);
         setResizable(false);
         setVisible(true);
@@ -45,7 +45,7 @@ public class CheckerFrame extends JFrame implements ActionListener{
             ((JButton)e.getSource()).setText("New Game");
             new PlaySound("Checkers/sounds/button.wav").start();
             gmP=new Checkers();
-            gmP.setBounds(0,0,508,401);
+            gmP.setBounds(0,0,518,401);
             this.setContentPane(gmP);
         }
     }
