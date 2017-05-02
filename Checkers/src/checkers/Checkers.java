@@ -303,8 +303,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             if(silent){
                 snB.setIcon(snp);
                 silent=false;
-                //new PlaySound("/button.wav").start();
-                rick.start();
+                new PlaySound("/button.wav").start();
+                //rick.start();
             }
             else{
                 snB.setIcon(mup);
