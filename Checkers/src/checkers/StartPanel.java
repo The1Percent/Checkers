@@ -29,8 +29,8 @@ public class StartPanel extends JPanel{
         //////////////////////////////////////////////////////////////////////
         g.setFont(new Font("Times new roman",Font.BOLD,12));
         g.setColor(Color.BLACK);
-        g.drawString("Chris Penner",180,180);
-        g.drawString("Brenda Rearden",180,200);
+        g.drawString("Chris \"The Canadian\" Penner",180,180);
+        g.drawString("\"Rainbow Bright\" Brenda Rearden",180,200);
         g.drawString("Shane \"Saint Honey\" Thoney",180,220);
         g.drawString("Steven \"Ze\" Universal",180,240);
         ////////////////////////////////////////////////////////////////////////
