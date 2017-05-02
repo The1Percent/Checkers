@@ -2,7 +2,6 @@ package checkers;
 
 import javax.swing.*;
 import java.io.*;
-import java.net.URL;
 import java.awt.*;
 
 public class Help extends JDialog {
