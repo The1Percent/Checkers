@@ -35,20 +35,19 @@ public class Help extends JDialog {
     }
 
     private void addText() {
-        String str = "";
-        URL url = getClass().getResource("rickroll.txt");
+        StringBuilder stringBuilder = new StringBuilder();
+        InputStream inputStream = getClass().getResourceAsStream("rickroll.txt");
+        int ch = 0;
         try {
-            BufferedReader b=new BufferedReader(new FileReader(new File(url.getPath())));
-            try {
-
-                while((str=b.readLine())!=null)
-                    txt.append(str+"\n");
-            } catch (IOException e) {
-                e.printStackTrace();
+            while((ch = inputStream.read()) != -1) {
+                stringBuilder.append((char) ch);
+                txt.setText(stringBuilder.toString());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        System.out.println(str);
+        System.out.println(stringBuilder);
     }
 }
