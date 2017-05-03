@@ -9,13 +9,7 @@ import java.lang.Thread;
 
 public class Checkers extends JPanel implements ActionListener, ItemListener, MouseMotionListener, MouseListener {
 
-	
-	Thread rick = new Thread(){
-		@Override
-		public void run(){
-			new PlaySound("/01 - Never Gonna Give You Up.wav").start();
-		}
-	};
+
     Graphics g;
 
     JTextArea msg=new JTextArea("Start a new game... Yellow is to move first...");
@@ -304,7 +298,6 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                 snB.setIcon(snp);
                 silent=false;
                 new PlaySound("/button.wav").start();
-                //rick.start();
             }
             else{
                 snB.setIcon(mup);
