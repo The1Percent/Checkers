@@ -47,6 +47,5 @@ public class Help extends JDialog {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(stringBuilder);
     }
 }
